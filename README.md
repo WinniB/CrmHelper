@@ -20,3 +20,5 @@ Collection of some usefull tools for Microsoft CRM/Dynamcis
 * [ *Alt + 6* ] ... get all optionsets
 * [ *Alt + 7* ] ... show/toggle Performance Center
 * [ *Alt + 8* ] ... show the properties dialog
+* [ *Alt + ß* ] ... go to current user's settings page
+* [ *Alt + ´* ] ... open customizations in new tab
