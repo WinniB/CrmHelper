@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Crm Helper
 // @namespace    https://github.com/WinniB
-// @version      0.4.3
+// @version      0.4.4
 // @description  Helper for MS Crm/Dynamics
 // @author       WinniB
 // @match        https://your-crm-url-here.com/*
@@ -56,7 +56,28 @@ unsafeWindow.onkeydown = function (event) {
     if (event.altKey && event.which == 56) {
         ShowPropertiesDialog();
     }
+	
+	//Shortcut for key (alt + ß)
+    if (event.altKey && event.which == 219){
+        OpenCurrentsUserSettings();
+    }
+
+    //Shortcut for key (alt + ´)
+    if (event.altKey && event.which == 221){
+        OpenCustomizations();
+    }
 };
+
+function OpenCustomizations(){
+    var url = Xrm.Page.context.getClientUrl() + "/tools/systemcustomization/systemcustomization.aspx?pagemode=iframe&sitemappath=Settings%7cCustomizations%7cnav_syscust#";
+    window.open(url);
+}
+
+function OpenCurrentsUserSettings(){
+    var userId = Xrm.Page.context.getUserId();
+    var url = Xrm.Page.context.getClientUrl() + "/main.aspx?etn=systemuser&id=" + userId + "&pagetype=entityrecord";
+    window.open(url,"_self");
+}
 
 function ShowHelpPage() {
     var title = "<a href='https://github.com/WinniB' target='_blank'><img src='" + iconImage + "' style='float: left; padding-right: 10px; margin-left: 5px;'></a> <h2 style='margin-bottom: 10px; margin-top: 0px; padding-top: 10px;'>CRM Tampermonkey Script</h2>";
@@ -74,6 +95,9 @@ function ShowHelpPage() {
     rows += preRow + "Alt + 6" + midRow + "get all optionsets" + postRow;
     rows += preRow + "Alt + 7" + midRow + "show/toggle Performance Center" + postRow;
     rows += preRow + "Alt + 8" + midRow + "show the properties dialog" + postRow;
+	
+	rows += preRow + "Alt + ß" + midRow + "go to current user's settings page" + postRow;
+	rows += preRow + "Alt + ´" + midRow + "open customizations in new tab" + postRow;
 
     var content = title + preTable + rows + postTable;
 
