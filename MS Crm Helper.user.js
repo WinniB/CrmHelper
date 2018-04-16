@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Crm Helper
 // @namespace    https://github.com/WinniB
-// @version      0.4.4
+// @version      0.4.5
 // @description  Helper for MS Crm/Dynamics
 // @author       WinniB
 // @match        https://your-crm-url-here.com/*
@@ -66,6 +66,11 @@ unsafeWindow.onkeydown = function (event) {
     if (event.altKey && event.which == 221){
         OpenCustomizations();
     }
+	
+    //Shortcut for key (alt + -)
+    if (event.altKey && event.which == 189){
+        ShowEntityName();
+    }
 };
 
 function OpenCustomizations(){
@@ -96,12 +101,13 @@ function ShowHelpPage() {
     rows += preRow + "Alt + 7" + midRow + "show/toggle Performance Center" + postRow;
     rows += preRow + "Alt + 8" + midRow + "show the properties dialog" + postRow;
 	
-	rows += preRow + "Alt + ß" + midRow + "go to current user's settings page" + postRow;
-	rows += preRow + "Alt + ´" + midRow + "open customizations in new tab" + postRow;
+    rows += preRow + "Alt + ß" + midRow + "go to current user's settings page" + postRow;
+    rows += preRow + "Alt + ´" + midRow + "open customizations in new tab" + postRow;
+    rows += preRow + "Alt + -" + midRow + "show/copy entity name" + postRow;
 
     var content = title + preTable + rows + postTable;
 
-    OpenNewPage("CRM Tampermonkey script information", content, 650, 280);
+    OpenNewPage("CRM Tampermonkey script information", content, 650, 380);
 }
 
 function OpenNewPage(title, content, width, height) {
@@ -168,6 +174,23 @@ function CopyRecordLink() {
     }
     catch (er) {
         alert('Error occurred while retrieving record url. ' + er.message);
+    }
+}
+
+function ShowEntityName(){
+    try {
+        var formContext = window.frames[0];
+        var entityName = formContext.Xrm.Page.data.entity.getEntityName();
+
+        if (window.clipboardData && window.clipboardData.setData('Text', entityName)) {
+            return;
+        }
+        else {
+            window.prompt('Copy to clipboard: Ctrl+C, Enter', entityName);
+        }
+    }
+    catch(er) {
+        alert('Error occurred while retrieving enitity name. '+ er.message);
     }
 }
 
