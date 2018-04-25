@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MS Crm Helper
 // @namespace    https://github.com/WinniB
-// @version      0.4.5
+// @version      0.4.6
 // @description  Helper for MS Crm/Dynamics
 // @author       WinniB
 // @match        https://your-crm-url-here.com/*
@@ -143,7 +143,7 @@ function GetAllOptionsets() {
         if (c.getControlType() == "optionset") {
             var osv = "<h2 style='margin-bottom: 10px;'>Name: " + c.getName() + "</h2>";
             osv += "<table style='padding-left: 20px;'><tr><th style='text-align: left; padding: 1px 6px;'>Value</th><th style='text-align: left; padding: 1px 6px;'>Text</th></tr>";
-            frames[0].$("#" + c.getName() + "_i").find("option").first().nextAll().each(function () {
+            frames[0].$("#" + c.getName() + "_i").find("option").first().nextAll().andSelf().each(function () {
                 osv += "<tr><td style='padding: 1px 6px;'>" + $(this).attr("value") + "</td><td style='padding: 1px 6px;'>" + $(this).attr("title") + "</td></tr>";
             });
             osv += "</table>";
