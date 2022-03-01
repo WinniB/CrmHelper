@@ -92,7 +92,7 @@ function ShowHelpPage() {
     rows += preRow + "Alt + 3" + midRow + "Show dirty elements on page" + postRow;
     rows += preRow + "Alt + 4" + midRow + "Enable all disabled fields" + postRow;
     rows += preRow + "Alt + 5" + midRow + "Show/copy record link" + postRow;
-    rows += preRow + "Alt + 6" + midRow + "Get all optionsets" + postRow;
+    rows += preRow + "Alt + 6" + midRow + "Show all OptionSet values" + postRow;
     rows += preRow + "Alt + 7" + midRow + "Show the properties dialog" + postRow;
     rows += preRow + "Alt + 8" + midRow + "Go to current user's settings page" + postRow;
     rows += preRow + "Alt + 9" + midRow + "Open customizations in new tab" + postRow;
