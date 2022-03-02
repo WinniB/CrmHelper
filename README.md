@@ -11,14 +11,16 @@ Collection of some usefull tools for Microsoft CRM/Dynamcis
 
 
 ## Tools / Shortcuts list
-* [ *Alt + ^* ] or [ *Alt + h* ] ... open help page
-* [ *Alt + 1* ] ... get entity GUID
-* [ *Alt + 2* ] ... show/toggle schema names
-* [ *Alt + 3* ] ... show dirty elements on page
-* [ *Alt + 4* ] ... enable all disabled fields
-* [ *Alt + 5* ] ... show/copy record link
-* [ *Alt + 6* ] ... get all optionsets
-* [ *Alt + 7* ] ... show/toggle Performance Center
-* [ *Alt + 8* ] ... show the properties dialog
-* [ *Alt + ß* ] ... go to current user's settings page
-* [ *Alt + ´* ] ... open customizations in new tab
+| Shortcut          | Description                                          |
+| ----------------- | ---------------------------------------------------- |
+| Alt + ^ / Alt + h | Open help page                                       |
+| Alt + 1           | Get entity GUID                                      |
+| Alt + 2           | Show/toggle schema names                             |
+| Alt + 3           | Show dirty elements on page                          |
+| Alt + 4           | Enable all disabled fields                           |
+| Alt + 5           | Show/copy record link                                |
+| Alt + 6           | Show all OptionSet values                            |
+| Alt + 7           | Show the properties dialog (currently not supported) |
+| Alt + 8           | Go to current user's settings page                   |
+| Alt + 9           | Open customizations in new tab                       |
+| Alt + 0           | Show/copy entity name                                |
